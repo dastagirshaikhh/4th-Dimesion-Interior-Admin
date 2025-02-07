@@ -3,7 +3,8 @@ import { getProject } from "../../../actions/projects"
 // import { checkAuth } from "../../../actions/auth"
 import { checkAuth } from "@/app/actions/actions"
 
-export default async function ProjectPage({ params }: { params: { id: string } }) {
+export default async function ProjectPage(props: { params: Promise<{ id: string }> }) {
+    const params = await props.params;
     checkAuth()
     const project = await getProject(params.id)
 
