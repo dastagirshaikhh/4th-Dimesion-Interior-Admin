@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { checkAuth } from "@/app/actions/actions"
-import ProjectList from "../components/ProjectList"
+import ProjectList from "../../components/ProjectList"
 import { Button } from "@/components/ui/button"
 import { GetProjects } from "../actions/appwrite"
 import { Project } from "@/lib/projects"
@@ -80,12 +80,9 @@ const mockProjects = [
 
 export default async function DashboardPage() {
     checkAuth()
-
-
-
     const projects = await GetProjects();
     // console.log(projects?.documents)
-    
+
     const projectList: Project[] = projects?.documents.map((doc) => ({
         $id: doc.$id,
         title: doc.title,
@@ -105,8 +102,6 @@ export default async function DashboardPage() {
         $databaseId: doc.$databaseId,
         $collectionId: doc.$collectionId,
     })) || [];
-
-    console.log(projectList)
 
     return (
         <div className="container mx-auto p-4">

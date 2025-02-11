@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { login } from "./actions/actions"
+import { Label } from "@/components/ui/label"
 
 export default function LoginPage() {
   return (
@@ -10,15 +11,15 @@ export default function LoginPage() {
         <form action={login}>
           <div className="space-y-4">
             <div>
-              <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+              <Label htmlFor="username" className="block text-sm font-medium text-gray-700">
                 Username
-              </label>
+              </Label>
               <Input type="text" id="username" name="username" required className="mt-1 block w-full" />
             </div>
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              <Label htmlFor="password" className="block text-sm font-medium text-gray-700">
                 Password
-              </label>
+              </Label>
               <Input type="password" id="password" name="password" required className="mt-1 block w-full" />
             </div>
             <Button type="submit" className="w-full">

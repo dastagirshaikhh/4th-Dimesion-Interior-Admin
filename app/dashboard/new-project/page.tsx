@@ -1,9 +1,9 @@
 import { checkAuth } from "@/app/actions/actions"
-import ProjectForm from "../../components/ProjectForm"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { HomeIcon } from "lucide-react"
 import Link from "next/link"
+import ProjectForm from "@/components/ProjectForm"
 
 export default function NewProjectPage() {
     checkAuth()
