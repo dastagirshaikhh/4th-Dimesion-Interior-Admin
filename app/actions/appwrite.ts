@@ -41,7 +41,7 @@ export const ImageUpload = async (imageFile: File) => {
     const storage_url = await storage.getFile(
         BUCKET_ID,
         response.$id)
-    console.log("images url",storage_url)
+    // console.log("images url",storage_url)
     
     return response.$id;
 }

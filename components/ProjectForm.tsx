@@ -840,7 +840,6 @@ export default function AddProduct() {
 
 
     const handleSubmit = async (e: React.FormEvent) => {
-        // console.log("Submitted Data:", e)
         if (beforeImage && afterImage) {
             const afterImageUrl = await ImageUpload(afterImage);
             const beforeImageUrl = await ImageUpload(beforeImage);
