@@ -17,3 +17,39 @@ export interface Project {
     $databaseId: string;
     $collectionId: string;
 }
+
+
+export interface AppwriteFormData {
+    title: string;
+    description: string;
+    location: string;
+    completionDate: string;
+    area: string;
+    client: string;
+    designer: string;
+    images: File[];
+    beforeImage: File | null;
+    afterImage: File | null;
+}
+
+
+export interface ProjectFormData {
+    title: string
+    description: string
+    location: string
+    completionDate: string
+    area: string
+    client: string
+    designer: string
+    images: File[]
+    beforeImage: File | null
+    afterImage: File | null
+}
+
+
+
+export const extractFileId = (url: string): string => {
+    const parts = url.split("/");
+    const fileIndex = parts.indexOf("files");
+    return fileIndex !== -1 && fileIndex + 1 < parts.length ? parts[fileIndex + 1] : "";
+}

@@ -868,130 +868,130 @@
 //         <div className="container mx-auto px-4 max-w-4xl">
 //             <form onSubmit={handleSubmit} className="space-y-6">
 //                 <div className="bg-white p-6 space-y-6">
-                    // <div>
-                    //     <Label className="block text-sm font-medium text-gray-700 mb-2">
-                    //         Project Title
-                    //     </Label>
-                    //     <Input
-                    //         type="text"
-                    //         name="title"
-                    //         value={formData.title}
-                    //         onChange={handleInputChange}
-                    //         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-                    //         // required
-                    //     />
-                    // </div>
+// <div>
+//     <Label className="block text-sm font-medium text-gray-700 mb-2">
+//         Project Title
+//     </Label>
+//     <Input
+//         type="text"
+//         name="title"
+//         value={formData.title}
+//         onChange={handleInputChange}
+//         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+//         // required
+//     />
+// </div>
 
-                    // <div>
-                    //     <Label className="block text-sm font-medium text-gray-700 mb-2">
-                    //         Description
-                    //     </Label>
-                    //     <Textarea
-                    //         name="description"
-                    //         value={formData.description}
-                    //         onChange={handleInputChange}
-                    //         rows={4}
-                    //         // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-                    //         // required
-                    //     />
-                    // </div>
+// <div>
+//     <Label className="block text-sm font-medium text-gray-700 mb-2">
+//         Description
+//     </Label>
+//     <Textarea
+//         name="description"
+//         value={formData.description}
+//         onChange={handleInputChange}
+//         rows={4}
+//         // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+//         // required
+//     />
+// </div>
 
-                    // <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    //     <div>
-                    //         <Label className="block text-sm font-medium text-gray-700 mb-2">
-                    //             Location
-                    //         </Label>
-                    //         <Input
-                    //             type="text"
-                    //             name="location"
-                    //             value={formData.location}
-                    //             onChange={handleInputChange}
-                    //             // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-                    //             // required
-                    //         />
-                    //     </div>
+// <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+//     <div>
+//         <Label className="block text-sm font-medium text-gray-700 mb-2">
+//             Location
+//         </Label>
+//         <Input
+//             type="text"
+//             name="location"
+//             value={formData.location}
+//             onChange={handleInputChange}
+//             // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+//             // required
+//         />
+//     </div>
 
-                    //     <div>
-                    //         <Label className="block text-sm font-medium text-gray-700 mb-2">
-                    //             Completion Date
-                    //         </Label>
-                    //         <Input
-                    //             type="date"
-                    //             name="completionDate"
-                    //             value={formData.completionDate}
-                    //             onChange={handleInputChange}
-                    //             // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-                    //             // required
-                    //         />
-                    //     </div>
+//     <div>
+//         <Label className="block text-sm font-medium text-gray-700 mb-2">
+//             Completion Date
+//         </Label>
+//         <Input
+//             type="date"
+//             name="completionDate"
+//             value={formData.completionDate}
+//             onChange={handleInputChange}
+//             // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+//             // required
+//         />
+//     </div>
 
-                    //     <div>
-                    //         <Label className="block text-sm font-medium text-gray-700 mb-2">
-                    //             Area (sqft)
-                    //         </Label>
-                    //         <Input
-                    //             type="number"
-                    //             name="area"
-                    //             value={formData.area}
-                    //             onChange={handleInputChange}
-                    //             // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-                    //             // required
-                    //         />
-                    //     </div>
+//     <div>
+//         <Label className="block text-sm font-medium text-gray-700 mb-2">
+//             Area (sqft)
+//         </Label>
+//         <Input
+//             type="number"
+//             name="area"
+//             value={formData.area}
+//             onChange={handleInputChange}
+//             // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+//             // required
+//         />
+//     </div>
 
-                    //     <div>
-                    //         <Label className="block text-sm font-medium text-gray-700 mb-2">
-                    //             Client Name
-                    //         </Label>
-                    //         <Input
-                    //             type="text"
-                    //             name="client"
-                    //             value={formData.client}
-                    //             onChange={handleInputChange}
-                    //             // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-                    //             // required
-                    //         />
-                    //     </div>
+//     <div>
+//         <Label className="block text-sm font-medium text-gray-700 mb-2">
+//             Client Name
+//         </Label>
+//         <Input
+//             type="text"
+//             name="client"
+//             value={formData.client}
+//             onChange={handleInputChange}
+//             // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+//             // required
+//         />
+//     </div>
 
-                    //     <div className="md:col-span-2">
-                    //         <Label className="block text-sm font-medium text-gray-700 mb-2">
-                    //             Designer
-                    //         </Label>
-                    //         <Input
-                    //             type="text"
-                    //             name="designer"
-                    //             value={formData.designer}
-                    //             onChange={handleInputChange}
-                    //             // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-                    //             // required
-                    //         />
-                    //     </div>
-                    // </div>
+//     <div className="md:col-span-2">
+//         <Label className="block text-sm font-medium text-gray-700 mb-2">
+//             Designer
+//         </Label>
+//         <Input
+//             type="text"
+//             name="designer"
+//             value={formData.designer}
+//             onChange={handleInputChange}
+//             // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+//             // required
+//         />
+//     </div>
+// </div>
 
-                    // {/* <div>
-                    //     <Label className="block text-sm font-medium text-gray-700 mb-2">
-                    //         Project Images
-                    //     </Label>
-                    //     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    //         {images.map((image, index) => (
-                    //             <div key={index} className="relative group">
-                    //                 <Image
-                    //                     src={URL.createObjectURL(image)}
-                    //                     alt={`Preview ${index + 1}`}
-                    //                     fill
-                    //                     className="w-full h-32 object-cover rounded-lg"
-                    //                 />
-                    //                 <Button
-                    //                     type="button"
-                    //                     variant="destructive"
-                    //                     size="icon"
-                    //                     className="absolute -top-2 -right-2 h-6 w-6"
-                    //                     onClick={() => removeImage(index)}
-                    //                 >
-                    //                     <X className="h-4 w-4" />
-                    //                 </Button>
-                    //             </div>
-                    //         ))}
+// {/* <div>
+//     <Label className="block text-sm font-medium text-gray-700 mb-2">
+//         Project Images
+//     </Label>
+//     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+//         {images.map((image, index) => (
+//             <div key={index} className="relative group">
+//                 <Image
+//                     src={URL.createObjectURL(image)}
+//                     alt={`Preview ${index + 1}`}
+//                     fill
+//                     className="w-full h-32 object-cover rounded-lg"
+//                 />
+//                 <Button
+//                     type="button"
+//                     variant="destructive"
+//                     size="icon"
+//                     className="absolute -top-2 -right-2 h-6 w-6"
+//                     onClick={() => removeImage(index)}
+//                 >
+//                     <X className="h-4 w-4" />
+//                 </Button>
+//             </div>
+//         ))}
 //                             <Label className="border-2 border-dashed rounded-lg aspect-square flex items-center justify-center cursor-pointer hover:border-primary">
 //                                 <Input
 //                                     type="file"
@@ -1138,25 +1138,13 @@ import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import Image from "next/image"
-import { ImageUpload } from "@/app/actions/appwrite"
+import { createProjectDocument, ImageUpload } from "@/app/actions/appwrite"
 import { COLLECTION_ID, DATABASE_ID, databases } from "@/lib/appwrite"
 import { ID } from "appwrite"
 import { Textarea } from "./ui/textarea"
+import { ProjectFormData } from "@/lib/projects"
 
-interface FormData {
-    title: string
-    description: string
-    location: string
-    completionDate: string
-    area: string
-    client: string
-    designer: string
-    images: File[]
-    beforeImage: File | null
-    afterImage: File | null
-}
-
-const initialFormData: FormData = {
+const initialFormData: ProjectFormData = {
     title: "",
     description: "",
     location: "",
@@ -1170,7 +1158,7 @@ const initialFormData: FormData = {
 }
 
 export default function ProjectForm() {
-    const [formData, setFormData] = useState<FormData>(initialFormData)
+    const [formData, setFormData] = useState<ProjectFormData>(initialFormData)
     const [loading, setLoading] = useState(false)
     const [images, setImages] = useState<File[]>([])
     const [beforeImage, setBeforeImage] = useState<File | null>(null)
@@ -1221,19 +1209,7 @@ export default function ProjectForm() {
             const afterImageId = await ImageUpload(afterImage)
 
             // Create project document
-            const response = await databases.createDocument(DATABASE_ID, COLLECTION_ID, ID.unique(), {
-                title: formData.title,
-                description: formData.description,
-                location: formData.location,
-                completionDate: formData.completionDate,
-                area: formData.area,
-                clientName: formData.client,
-                designerName: formData.designer,
-                category: "residential",
-                images: imageIds,
-                beforeImage: beforeImageId,
-                afterImage: afterImageId,
-            })
+            const response = await createProjectDocument(formData, imageIds, beforeImageId, afterImageId);
 
             console.log("Project added:", response)
             // Reset form
@@ -1266,7 +1242,7 @@ export default function ProjectForm() {
                             value={formData.title}
                             onChange={handleInputChange}
                             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-                            // required
+                        // required
                         />
                     </div>
 
@@ -1279,8 +1255,8 @@ export default function ProjectForm() {
                             value={formData.description}
                             onChange={handleInputChange}
                             rows={4}
-                            // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-                            // required
+                        // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                        // required
                         />
                     </div>
 
@@ -1294,8 +1270,8 @@ export default function ProjectForm() {
                                 name="location"
                                 value={formData.location}
                                 onChange={handleInputChange}
-                                // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-                                // required
+                            // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                            // required
                             />
                         </div>
 
@@ -1308,8 +1284,8 @@ export default function ProjectForm() {
                                 name="completionDate"
                                 value={formData.completionDate}
                                 onChange={handleInputChange}
-                                // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-                                // required
+                            // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                            // required
                             />
                         </div>
 
@@ -1322,8 +1298,8 @@ export default function ProjectForm() {
                                 name="area"
                                 value={formData.area}
                                 onChange={handleInputChange}
-                                // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-                                // required
+                            // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                            // required
                             />
                         </div>
 
@@ -1336,8 +1312,8 @@ export default function ProjectForm() {
                                 name="client"
                                 value={formData.client}
                                 onChange={handleInputChange}
-                                // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-                                // required
+                            // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                            // required
                             />
                         </div>
 
@@ -1350,8 +1326,8 @@ export default function ProjectForm() {
                                 name="designer"
                                 value={formData.designer}
                                 onChange={handleInputChange}
-                                // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-                                // required
+                            // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                            // required
                             />
                         </div>
                     </div>

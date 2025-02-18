@@ -2,6 +2,7 @@
 
 import { COLLECTION_ID, DATABASE_ID, BUCKET_ID, databases, storage } from "@/lib/appwrite"
 import { ID } from "appwrite"
+import { AppwriteFormData, extractFileId } from "@/lib/projects"
 
 
 export const GetProjects = async () => {
@@ -14,8 +15,29 @@ export const GetProjects = async () => {
     }
 }
 
+const deleteImages = async (imageUrls: string[]) => {
+    try {
+        const imageIds = imageUrls.map(extractFileId);
+        await Promise.all(imageIds.map((imageId) => storage.deleteFile(BUCKET_ID, imageId)));
+    } catch (error) {
+        console.error("Error deleting images:", error);
+    }
+};
+
+
 export const deleteProjects = async (ids: string[]) => {
     try {
+        const projects = await Promise.all(
+            ids.map((id) => databases.getDocument(DATABASE_ID, COLLECTION_ID, id))
+        );
+
+        const imageUrls = projects.flatMap((project) => [
+            ...project.images,
+            project.beforeImage,
+            project.afterImage,
+        ].filter(Boolean));
+
+        await deleteImages(imageUrls);
         await Promise.all(ids.map((id) => databases.deleteDocument(DATABASE_ID, COLLECTION_ID, id)))
     } catch (error) {
         console.error("Error deleting products:", error)
@@ -37,9 +59,35 @@ export const ImageUpload = async (imageFile: File) => {
         ID.unique(),
         imageFile
     );
-    return response.$id;
+    // console.log(storage.getFileView(BUCKET_ID, response.$id))
+    return storage.getFileView(BUCKET_ID, response.$id);
 }
-// const storage_url = await storage.getFile(
-//     BUCKET_ID,
-//     response.$id)
-// console.log("images url",storage_url)
+
+
+export const createProjectDocument = async (formData: AppwriteFormData, imageIds: string[], beforeImageId: string | null, afterImageId: string | null) => {
+    // console.log(imageIds, beforeImageId, afterImageId)
+    try {
+        const response = await databases.createDocument(
+            DATABASE_ID,
+            COLLECTION_ID,
+            ID.unique(),
+            {
+                title: formData.title,
+                description: formData.description,
+                location: formData.location,
+                completionDate: formData.completionDate,
+                area: formData.area,
+                clientName: formData.client,
+                designerName: formData.designer,
+                category: "residential",
+                images: imageIds,
+                beforeImage: beforeImageId,
+                afterImage: afterImageId,
+            }
+        );
+        return response;
+    } catch (error) {
+        console.error("Error creating project document:", error);
+        throw error;
+    }
+};
