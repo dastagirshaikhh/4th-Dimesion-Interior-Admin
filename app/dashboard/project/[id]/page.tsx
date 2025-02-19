@@ -65,7 +65,7 @@ export default async function ProjectPage({ params }: { params: { id: string } }
                                     alt={`Project image ${index + 1}`}
                                     width={250}
                                     height={250}
-                                    className="object-cover rounded-lg shadow-md hover:scale-105 transition-transform"
+                                    className="object-cover rounded-lg shadow-md"
                                 />
                             ))
                         ) : (
@@ -87,7 +87,7 @@ export default async function ProjectPage({ params }: { params: { id: string } }
                                 alt={`${label} view of ${project.title || "project"}`}
                                 width={300}
                                 height={300}
-                                className="object-cover rounded-xl shadow-lg transition-transform transform hover:scale-105 duration-300 ease-in-out aspect-square"
+                                className="object-cover rounded-xl shadow-lg aspect-square"
                             />
                         </div>
                     ))}

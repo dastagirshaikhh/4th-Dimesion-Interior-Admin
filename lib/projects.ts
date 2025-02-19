@@ -27,6 +27,7 @@ export interface AppwriteFormData {
     area: string;
     client: string;
     designer: string;
+    category: string;
     images: File[];
     beforeImage: File | null;
     afterImage: File | null;
@@ -41,6 +42,7 @@ export interface ProjectFormData {
     area: string
     client: string
     designer: string
+    category: string
     images: File[]
     beforeImage: File | null
     afterImage: File | null

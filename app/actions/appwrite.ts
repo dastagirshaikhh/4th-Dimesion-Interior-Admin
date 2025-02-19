@@ -59,13 +59,11 @@ export const ImageUpload = async (imageFile: File) => {
         ID.unique(),
         imageFile
     );
-    // console.log(storage.getFileView(BUCKET_ID, response.$id))
     return storage.getFileView(BUCKET_ID, response.$id);
 }
 
 
 export const createProjectDocument = async (formData: AppwriteFormData, imageIds: string[], beforeImageId: string | null, afterImageId: string | null) => {
-    // console.log(imageIds, beforeImageId, afterImageId)
     try {
         const response = await databases.createDocument(
             DATABASE_ID,
@@ -79,7 +77,7 @@ export const createProjectDocument = async (formData: AppwriteFormData, imageIds
                 area: formData.area,
                 clientName: formData.client,
                 designerName: formData.designer,
-                category: "residential",
+                category: formData.category,
                 images: imageIds,
                 beforeImage: beforeImageId,
                 afterImage: afterImageId,

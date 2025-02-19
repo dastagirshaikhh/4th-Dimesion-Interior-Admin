@@ -1152,10 +1152,22 @@ const initialFormData: ProjectFormData = {
     area: "",
     client: "",
     designer: "",
+    category: "",
     images: [],
     beforeImage: null,
     afterImage: null,
 }
+
+const categories = [
+    {
+        id: "residential",
+        label: "Residential",
+    },
+    {
+        id: "commercial",
+        label: "Commercial",
+    }
+]
 
 export default function ProjectForm() {
     const [formData, setFormData] = useState<ProjectFormData>(initialFormData)
@@ -1163,6 +1175,11 @@ export default function ProjectForm() {
     const [images, setImages] = useState<File[]>([])
     const [beforeImage, setBeforeImage] = useState<File | null>(null)
     const [afterImage, setAfterImage] = useState<File | null>(null)
+    const [selectedCategory, setSelectedCategory] = useState("");
+
+    const handleCategoryChange = (event: any) => {
+        setSelectedCategory(event.target.value);
+    };
 
     const handleBeforeImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files && event.target.files[0]) {
@@ -1242,7 +1259,7 @@ export default function ProjectForm() {
                             value={formData.title}
                             onChange={handleInputChange}
                             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-                        // required
+                            required
                         />
                     </div>
 
@@ -1255,8 +1272,8 @@ export default function ProjectForm() {
                             value={formData.description}
                             onChange={handleInputChange}
                             rows={4}
-                        // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-                        // required
+                            // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                            required
                         />
                     </div>
 
@@ -1270,8 +1287,8 @@ export default function ProjectForm() {
                                 name="location"
                                 value={formData.location}
                                 onChange={handleInputChange}
-                            // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-                            // required
+                                // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                                required
                             />
                         </div>
 
@@ -1284,8 +1301,8 @@ export default function ProjectForm() {
                                 name="completionDate"
                                 value={formData.completionDate}
                                 onChange={handleInputChange}
-                            // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-                            // required
+                                // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                                required
                             />
                         </div>
 
@@ -1298,8 +1315,8 @@ export default function ProjectForm() {
                                 name="area"
                                 value={formData.area}
                                 onChange={handleInputChange}
-                            // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-                            // required
+                                // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                                required
                             />
                         </div>
 
@@ -1312,12 +1329,12 @@ export default function ProjectForm() {
                                 name="client"
                                 value={formData.client}
                                 onChange={handleInputChange}
-                            // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-                            // required
+                                // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                                required
                             />
                         </div>
 
-                        <div className="md:col-span-2">
+                        <div>
                             <Label className="block text-sm font-medium text-gray-700 mb-2">
                                 Designer
                             </Label>
@@ -1326,9 +1343,30 @@ export default function ProjectForm() {
                                 name="designer"
                                 value={formData.designer}
                                 onChange={handleInputChange}
-                            // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-                            // required
+                                // className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                                required
                             />
+                        </div>
+
+                        <div>
+                            <Label className="block text-sm font-medium text-gray-700 mb-2">
+                                Type
+                            </Label>
+                            <div className="flex gap-4">
+                                {categories.map((item) => (
+                                    <Label key={item.id} className="flex items-center space-x-2">
+                                        <Input
+                                            type="radio"
+                                            name="category"
+                                            value={item.id}
+                                            checked={selectedCategory === item.id}
+                                            onChange={handleCategoryChange}
+                                            className="form-radio text-black"
+                                        />
+                                        <span>{item.label}</span>
+                                    </Label>
+                                ))}
+                            </div>
                         </div>
                     </div>
 
@@ -1358,7 +1396,7 @@ export default function ProjectForm() {
                             ))} */}
 
 
-                    <Label htmlFor="images">Project Images</Label>
+                    {/* <Label htmlFor="images">Project Images</Label>
                     <div className="mt-2 grid grid-cols-4 gap-4">
                         {images.map((image, index) => (
                             <div key={index} className="relative aspect-square">
@@ -1394,6 +1432,49 @@ export default function ProjectForm() {
                             <Plus className="w-8 h-8 text-gray-400" />
                             <span className="text-sm text-gray-500 mt-2">Add Image</span>
                         </Label>
+                    </div> */}
+
+                    <div>
+                        <Label htmlFor="images" className="block text-sm font-medium text-gray-700">
+                            Project Images
+                        </Label>
+                        <div className="mt-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                            {images.map((image, index) => (
+                                <div key={index} className="relative aspect-square">
+                                    <Image
+                                        src={URL.createObjectURL(image) || "/placeholder.svg"}
+                                        alt={`Preview ${index + 1}`}
+                                        fill
+                                        className="rounded-lg object-cover"
+                                    />
+                                    <Button
+                                        type="button"
+                                        variant="destructive"
+                                        size="icon"
+                                        className="absolute -top-2 -right-2 h-6 w-6"
+                                        onClick={() => removeImage(index)}
+                                    >
+                                        <X className="h-4 w-4" />
+                                    </Button>
+                                </div>
+                            ))}
+                            {/* Upload Image Button */}
+                            <Label
+                                htmlFor="add-images"
+                                className="border-2 border-dashed border-gray-300 rounded-lg p-4 aspect-square flex flex-col items-center justify-center cursor-pointer hover:border-black transition-colors w-full"
+                            >
+                                <Input
+                                    id="add-images"
+                                    type="file"
+                                    accept="image/*"
+                                    multiple
+                                    className="hidden"
+                                    onChange={handleImageChange}
+                                />
+                                <Plus className="w-8 h-8 text-gray-400" />
+                                <span className="text-sm text-gray-500 mt-2">Add Image</span>
+                            </Label>
+                        </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
