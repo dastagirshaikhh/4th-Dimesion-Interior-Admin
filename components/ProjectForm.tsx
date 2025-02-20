@@ -1139,10 +1139,12 @@ import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import Image from "next/image"
 import { createProjectDocument, ImageUpload } from "@/app/actions/appwrite"
-import { COLLECTION_ID, DATABASE_ID, databases } from "@/lib/appwrite"
-import { ID } from "appwrite"
 import { Textarea } from "./ui/textarea"
 import { ProjectFormData } from "@/lib/projects"
+import { useToast } from "@/hooks/use-toast"
+import { ToastAction } from "./ui/toast"
+import Link from "next/link"
+// import { useToast } from "@/components/hooks/use-toast";
 
 const initialFormData: ProjectFormData = {
     title: "",
@@ -1176,6 +1178,7 @@ export default function ProjectForm() {
     const [beforeImage, setBeforeImage] = useState<File | null>(null)
     const [afterImage, setAfterImage] = useState<File | null>(null)
     const [selectedCategory, setSelectedCategory] = useState("");
+    const { toast } = useToast();
 
     const handleCategoryChange = (event: any) => {
         setSelectedCategory(event.target.value);
@@ -1226,18 +1229,26 @@ export default function ProjectForm() {
             const afterImageId = await ImageUpload(afterImage)
 
             // Create project document
-            const response = await createProjectDocument(formData, imageIds, beforeImageId, afterImageId);
+            const response = await createProjectDocument(formData, imageIds, beforeImageId, afterImageId, selectedCategory);
 
-            console.log("Project added:", response)
+            // console.log("Project added:", response)
             // Reset form
             setFormData(initialFormData)
             setImages([])
             setBeforeImage(null)
             setAfterImage(null)
-            alert("Project added successfully!")
+            // alert("Project added successfully!")
+            toast({
+                description: "Your project has been added successfully!",
+                action: <ToastAction altText="Go to Dashboard"><Link href="/dashboard">Go to Dashboard</Link></ToastAction>
+            });
         } catch (error) {
             console.error("Error adding project:", error)
-            alert("Error adding project. Please try again.")
+            toast({
+                title: "Something went wrong:( ☹️",
+                description: "Error adding project. Please try again.",
+                variant: "destructive",
+            });
         } finally {
             setLoading(false)
         }
@@ -1247,7 +1258,6 @@ export default function ProjectForm() {
         <div className="container mx-auto px-4 max-w-4xl">
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="bg-white p-6 space-y-6">
-                    {/* ... (keep the existing input fields for title, description, etc.) ... */}
 
                     <div>
                         <Label className="block text-sm font-medium text-gray-700 mb-2">
@@ -1542,7 +1552,11 @@ export default function ProjectForm() {
                     </div>
                 </div>
 
-                <Button type="submit" disabled={loading} className="w-full">
+                <Button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full"
+                >
                     {loading ? (
                         <>
                             <Loader2 className="w-5 h-5 mr-2 animate-spin" />

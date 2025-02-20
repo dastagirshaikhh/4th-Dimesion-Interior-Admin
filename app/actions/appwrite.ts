@@ -63,7 +63,7 @@ export const ImageUpload = async (imageFile: File) => {
 }
 
 
-export const createProjectDocument = async (formData: AppwriteFormData, imageIds: string[], beforeImageId: string | null, afterImageId: string | null) => {
+export const createProjectDocument = async (formData: AppwriteFormData, imageIds: string[], beforeImageId: string | null, afterImageId: string | null, category: string | null) => {
     try {
         const response = await databases.createDocument(
             DATABASE_ID,
@@ -77,7 +77,7 @@ export const createProjectDocument = async (formData: AppwriteFormData, imageIds
                 area: formData.area,
                 clientName: formData.client,
                 designerName: formData.designer,
-                category: formData.category,
+                category: category,
                 images: imageIds,
                 beforeImage: beforeImageId,
                 afterImage: afterImageId,
