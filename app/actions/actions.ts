@@ -3,9 +3,20 @@
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 
-export async function login(formData: FormData) {
-    const username = formData.get("username")
-    const password = formData.get("password")
+export type State = {
+    errors: {
+        username: string,
+        password: string
+    }
+    message: string;
+}
+
+export async function login(state: State, payload: FormData): Promise<State> {
+    const username = payload.get("username")
+    const password = payload.get("password")
+
+    console.log(username)
+    console.log(password)
 
     // In a real application, you would validate the credentials against a database
     if (username === "admin" && password === "admin") {
@@ -14,6 +25,13 @@ export async function login(formData: FormData) {
     } else {
         // In a real application, you would handle this error more gracefully
         throw new Error("Invalid credentials")
+    }
+    return {
+        message: 'test',
+        errors: {
+            username: 'test',
+            password: 'test'
+        }
     }
 }
 
