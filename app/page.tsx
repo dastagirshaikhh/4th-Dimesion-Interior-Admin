@@ -50,7 +50,7 @@ export default function LoginPage() {
                 type="text"
                 id="username"
                 name="username"
-                placeholder="Text"
+                placeholder="Username"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="mt-1 block w-full"
