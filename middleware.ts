@@ -6,7 +6,7 @@ export function middleware(request: NextRequest) {
   const authCookie = request.cookies.get('auth')?.value;
   const { pathname } = request.nextUrl;
 
-  // If the user is not authenticated and tries to access /dashboard, redirect to home
+  // If the user is not authenticated and tries to access /dashboard, redirect to login
   if (!authCookie && pathname.startsWith('/dashboard')) {
     return NextResponse.redirect(new URL('/', request.url));
   }

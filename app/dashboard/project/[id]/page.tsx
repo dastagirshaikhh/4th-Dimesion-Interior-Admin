@@ -96,5 +96,3 @@ export default async function ProjectPage({ params }: { params: { id: string } }
         </div>
     );
 }
-
-// ✅ FIXED FUNCTION: GetProductById
