@@ -48,7 +48,7 @@ export default function ProjectForm() {
     const [selectedCategory, setSelectedCategory] = useState("");
     const { toast } = useToast();
 
-    const handleCategoryChange = (event: any) => {
+    const handleCategoryChange = (event: { target: { value: React.SetStateAction<string> } }) => {
         setSelectedCategory(event.target.value);
     };
 
@@ -97,7 +97,7 @@ export default function ProjectForm() {
             const afterImageId = await ImageUpload(afterImage)
 
             // Create project document
-            const response = await createProjectDocument(formData, imageIds, beforeImageId, afterImageId, selectedCategory);
+            await createProjectDocument(formData, imageIds, beforeImageId, afterImageId, selectedCategory);
 
             // console.log("Project added:", response)
             // Reset form
