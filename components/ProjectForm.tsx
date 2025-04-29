@@ -96,11 +96,8 @@ export default function ProjectForm() {
             const beforeImageId = await ImageUpload(beforeImage)
             const afterImageId = await ImageUpload(afterImage)
 
-            // Create project document
             await createProjectDocument(formData, imageIds, beforeImageId, afterImageId, selectedCategory);
 
-            // console.log("Project added:", response)
-            // Reset form
             setFormData(initialFormData)
             setImages([])
             setBeforeImage(null)
