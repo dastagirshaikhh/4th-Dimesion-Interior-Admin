@@ -5,7 +5,7 @@ import Link from "next/link";
 import { HomeIcon } from "lucide-react";
 import { GetProductById } from "@/app/actions/appwrite";
 
-export default async function ProjectPage({ params }: { params: { id: string } }) {
+export default async function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
     checkAuth();
 
